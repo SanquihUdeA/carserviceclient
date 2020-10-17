@@ -3,26 +3,30 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 @Injectable({ providedIn: "root" })
-export class CarService {
+export class UserService {
   public API = "//thawing-chamber-47973.herokuapp.com";
-  public CAR_API = this.API + "/cars";
+  public USER_API = this.API + "/owners";
 
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<any> {
-    return this.http.get(this.API + "/cool-cars");
+    return this.http.get(this.USER_API);
   }
 
   get(id: string) {
-    return this.http.get(this.CAR_API + "/" + id);
+    return this.http.get(this.USER_API + "/" + id);
   }
 
-  save(car: any): Observable<any> {
+  getBy_linksHelfHref(link: string) {
+    return this.http.get(link);
+  }
+
+  save(user: any): Observable<any> {
     let result: Observable<Object>;
-    if (car["href"]) {
-      result = this.http.put(car.href, car);
+    if (user["href"]) {
+      result = this.http.put(user.href, user);
     } else {
-      result = this.http.post(this.CAR_API, car);
+      result = this.http.post(this.USER_API, user);
     }
     return result;
   }

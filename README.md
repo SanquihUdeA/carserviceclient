@@ -1,3 +1,27 @@
+# Explicación de los componentes y servicios realizados en angular para llegar a la solución
+
+## Componente user-list
+
+Fué creado con ayuda del comando `ng g c user-list` y con ayuda del componente ya creado `car-list`. Se hizo uso tambien de `<mat-selection-list>` para que se pudieran seleccionar varios owners con una especie de checkbox y poderlos eliminar. Y finalmente se agregó un boton para dirigirse a la lista de carros.
+
+## Componente user-edit
+
+Fué creado con ayuda del comando `ng g c user-edit` y con ayuda del componente ya creado `car-edit`. Y unicamente se le agregaron mas `<mat-form-field>` para mostrar todos los detalles del usuario.
+
+## Servicio user
+
+Fué creado con ayuda del comando `ng g s shared/user/user` y con ayuda del servicio ya creado `shared/car/car`. unicamnete se le agrego el metodo `getBy_linksHelfHref` con el fin de obtener los owners por medio del href, ya que no se contaba con un parametro `id`.
+
+## Cambios en componente car-list
+
+Se agregó `{{ car.ownerDni }}` para poder ver el Dni del woner al lado del nombre del carro y tambien se agrego un boton para dirigirse a la lista de owners.
+
+## Cambios en componente car-edit
+
+Se hizo uso del componente `<mat-select>` de angular material para seleccionar el usuario que va estar relacionado con ese carro.
+
+---
+
 # CarServiceClient
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.

@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-title>User List</mat-card-title>
+  <mat-card-content>
+    <mat-selection-list #owners>
+      <mat-list-option *ngFor="let user of users" [value]="user">
+        <img mat-list-avatar src="{{ user.giphyUrl }}" alt="{{ user.name }}" />
+        <h3 mat-line>
+          <a mat-button [routerLink]="['/user-edit', user._links.self.href]">{{
+            user.name
+          }}</a>
+        </h3>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-card-content>
+  <button mat-fab color="accent" [routerLink]="['/car-list']">Cars</button>
+  <button mat-fab color="primary" [routerLink]="['/user-add']">Add</button>
+  <button
+    mat-fab
+    color="secondary"
+    [disabled]="owners.selectedOptions.selected.length < 1"
+    (click)="remove(owners.selectedOptions.selected)"
+  >
+    Delete
+  </button>
+</mat-card>
